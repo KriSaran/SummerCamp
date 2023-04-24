@@ -1,15 +1,10 @@
 package com.summercampquest.campquest.models;
-
-<<<<<<< HEAD
-public class AbstractEntity {
-=======
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Objects;
-
 @MappedSuperclass
 public abstract class AbstractEntity {
     @Id
@@ -49,6 +44,4 @@ public abstract class AbstractEntity {
     public int hashCode() {
         return Objects.hash(id);
     }
->>>>>>> 11e1edb32b3acf4bd408c6934a3541d02c665892
-
 }
