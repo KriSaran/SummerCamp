@@ -19,6 +19,7 @@ export class CampListComponent implements OnInit {
   }
 
   private getCamps(){
+    console.log(this.camps);
     this.campService.getCampsList().subscribe(data => {
         this.camps = data;
     });
