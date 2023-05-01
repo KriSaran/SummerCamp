@@ -1,0 +1,21 @@
+body {
+    /* background-color: rgba(0, 128, 0, 0.2); */
+     background-color: (250, 248, 246)
+    }
+.item-a {
+   grid-area: header;
+       }
+.item-d {
+        grid-area: footer;
+      }
+      
+ .container {
+         display: grid;
+         /* grid-template-columns: ; */
+         grid-template-rows: auto;
+         grid-template-areas: 
+          "header header header header"
+          "main main " 
+          "footer footer footer footer";
+      }
+      
