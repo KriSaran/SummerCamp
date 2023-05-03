@@ -15,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let camp of camps">
+        <tr *ngFor="let camp of camps">
             <td>{{camp.name}}</td>
             <td>{{camp.description}}</td>
             <td>{{camp.price}}</td>
@@ -25,11 +25,12 @@
             <td>{{camp.total_seats}}</td>
             <td>{{camp.mode}}</td>
             <td>{{camp.category}}</td>
-            <td>{{camp.camp_link}}</td>
+            <td>{{camp.campLink}}</td>
+            <td><button (click)='campDetails(camp.id)'>Camp Detail</button></td>
         </tr>
     </tbody>
     
 </table>
 <div>
-     <button routerLink="/camp-detail">Camp Detail</button>
+     
 </div>

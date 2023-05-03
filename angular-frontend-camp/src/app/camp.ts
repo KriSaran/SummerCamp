@@ -10,7 +10,9 @@ export class Camp {
     total_seats: number;
     mode: string;
     category: string;
-    camp_link: string;
+    campLink: string;
+    
+    
 
     constructor(id: number, name: string, description: string, price: number, duration: string, age: number,
         deadline: Date, total_seats: number, mode: string, category: string, camp_link: string){
@@ -24,6 +26,9 @@ export class Camp {
         this.total_seats = total_seats;
         this.mode = mode;
         this.category = category;
-        this.camp_link = camp_link;
+        this.campLink = camp_link;
     }
+
+
+    
 }

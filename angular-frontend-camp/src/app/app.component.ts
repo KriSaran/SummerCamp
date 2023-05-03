@@ -1,6 +1,7 @@
 import { Component,ViewEncapsulation } from '@angular/core';
 import { Camp } from './camp';
 import { CampService } from './camp.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +15,12 @@ export class AppComponent {
   
   public camps : Camp[] = [];
 
- constructor(private campService: CampService){}
+ constructor(private campService: CampService , private router :Router){}
 
  public getCamp() {
   this.campService.getCamp(1);// 1 - dummy data
  }
+
+
 
 }

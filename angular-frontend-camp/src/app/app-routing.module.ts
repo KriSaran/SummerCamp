@@ -6,7 +6,7 @@ import { CampListComponent } from './camp-list/camp-list.component';
 const routes: Routes = [
 
   {path: 'camp-list', pathMatch: 'full', component: CampListComponent  },
-  {path: 'camp-detail', pathMatch: 'full', component: CampDetailComponent  },
+  {path: 'camp-detail/:id', pathMatch: 'full', component: CampDetailComponent  },
   {path: '', pathMatch: 'full', redirectTo: '/camp-list'  }
 
 ];
