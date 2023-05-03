@@ -7,4 +7,18 @@
     background-size: 10%;
     background-position: right;
   }
-  
+
+  .align-right {
+    text-align: 20;
+    border: 0;
+  }
+  .btn1{
+       position: absolute;
+       bottom: 250px;
+       left: 100px;    
+  }
+  .btn2{
+    position: absolute;
+       bottom: 250px;
+       right: 850px;
+  }
