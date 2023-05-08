@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CampListComponent } from './camp-list/camp-list.component';
 import { CampDetailComponent } from './camp-detail/camp-detail.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+// import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
