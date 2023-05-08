@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ForgotpasswordService } from '../forgotpassword.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -12,7 +13,7 @@ export class ForgotPasswordComponent implements OnInit {
     forgotPasswordForm!: FormGroup;
     submitted = false;
   
-    constructor(private http: HttpClient) { }
+    constructor(private forgotpassword:ForgotpasswordService,private http: HttpClient) { }
   
     ngOnInit(): void {
       this.forgotPasswordForm = new FormGroup({
@@ -30,10 +31,12 @@ export class ForgotPasswordComponent implements OnInit {
         return;
       }
       const email = this.forgotPasswordForm.value.email;
-      this.http.post('/api/forgot-password', { email }).subscribe((response) => {
+      this.forgotpassword(email).subscribe((response: any) => {
+
+      // this.http.post('/api/forgot-password', { email }).subscribe((response) => {
         console.log('Forgot password request sent successfully');
         // display a success message to the user
-      }, (error) => {
+      }, (error: any) => {
         console.error('Failed to send forgot password request:', error);
         // display an error message to the user
       });

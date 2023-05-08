@@ -8,7 +8,7 @@ const routes: Routes = [
 
   {path: 'camp-list', pathMatch: 'full', component: CampListComponent  },
   {path: 'camp-detail/:id', pathMatch: 'full', component: CampDetailComponent  },
-  {path:'forgot-passoword',pathMatch:'full',component:ForgotPasswordComponent},
+  {path:'forgot-password',pathMatch:'full',component:ForgotPasswordComponent},
   {path: '', pathMatch: 'full', redirectTo: '/camp-list'  }
 
 ];
