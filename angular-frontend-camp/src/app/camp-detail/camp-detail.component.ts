@@ -8,6 +8,8 @@ import { CampService } from '../camp.service';
   templateUrl: './camp-detail.component.html',
   styleUrls: ['./camp-detail.component.css']
 })
+
+
 export class CampDetailComponent implements OnInit {
 
    id:any;
