@@ -1,23 +1,14 @@
 package com.summercampquest.campquest.data.models;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
+@CrossOrigin()
 public class Camp {
-
-    /* @NotBlank(message = "Required")
-    @Size(min = 3, max = 50, message = "Must be between 3 and 50 characters")
-    description: string;
-    price: number;
-    duration: string;
-    age: number;
-    deadline: Date;
-    totalSeats: number;
-    mode: string;
-    category: string;
-    campLink: string;*/
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -51,7 +42,11 @@ public class Camp {
 
     public Camp(String name, String description, Integer price, String duration, Integer age, Date deadline,
                 Integer totalSeats, String mode, String category, String campLink) {
+<<<<<<< HEAD:src/main/java/com/summercampquest/campquest/data/models/Camp.java
 
+=======
+//        super();
+>>>>>>> Saran:src/main/java/com/summercampquest/campquest/models/Camp.java
         this.name = name;
         this.description = description;
         this.price = price;
@@ -62,6 +57,7 @@ public class Camp {
         this.mode = mode;
         this.category = category;
         this.campLink = campLink;
+
     }
 
     public int getId() {
