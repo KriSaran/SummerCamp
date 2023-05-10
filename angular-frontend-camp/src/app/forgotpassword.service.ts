@@ -13,7 +13,7 @@ export class ForgotpasswordService {
 
   constructor(private http:HttpClient) { }
 
-  // getForgotPassword(email: any): Observable<User> {
-  //   return this.http.post(`${this.apiUrl}/forgot-password`, { email });
-  // }
+  getForgotPassword(email: any) {
+    return this.http.post(`${this.apiUrl}/forgot-password`, { email });
+  }
 }

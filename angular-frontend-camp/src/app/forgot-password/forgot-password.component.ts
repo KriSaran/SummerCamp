@@ -32,7 +32,7 @@ export class ForgotPasswordComponent implements OnInit {
       }
       const email = this.forgotPasswordForm.value.email;
       // this.forgotpassword.getForgotPassword(email).subscribe((response: any) => {
-      this.http.post('/api/forgot-password', { email }).subscribe((response) => {
+      this.http.post('http://localhost:8080/api/forgot-password', { email }).subscribe((response) => {
         console.log('Forgot password request sent successfully');
         // display a success message to the user
       }, (error: any) => {
