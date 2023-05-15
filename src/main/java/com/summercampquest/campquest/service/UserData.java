@@ -54,6 +54,7 @@ public class UserData {
 
     public User findByToken(String token ){
         return userRepository.findByToken(token);
+
     }
 
 }
