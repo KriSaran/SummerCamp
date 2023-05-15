@@ -28,9 +28,8 @@ public class User {
     @Column(name = "password")
     private String password;
 
-
-    @Column(name = "forgot_password_token")
-    private String forgotPasswordToken;
+    @Column(name = "token")
+    private String token;
 
     @Column(name = "token_expiry_date")
     private Date tokenExpiryDate;
@@ -53,7 +52,7 @@ public class User {
 
     public User(String firstName, String lastName, String email, Integer age, Integer grade, Integer phone,
                 String username, String password, String profilePictureLink,
-                String forgotPasswordToken, Date tokenExpiryDate) {
+                String token, Date tokenExpiryDate) {
 //        super();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -65,7 +64,7 @@ public class User {
         this.password = password;
 //        this.favorites = favorites;
         this.profilePictureLink = profilePictureLink;
-        this.forgotPasswordToken = forgotPasswordToken;
+        this.token = token;
         this.tokenExpiryDate = tokenExpiryDate;
         // this.admin = false;
     }
@@ -147,11 +146,11 @@ public class User {
     }
 
     public String getForgotPasswordToken() {
-        return forgotPasswordToken;
+        return token;
     }
 
     public void setForgotPasswordToken(String forgotPasswordToken) {
-        this.forgotPasswordToken = forgotPasswordToken;
+        this.token = forgotPasswordToken;
     }
 
     //    public List<Camp> getFavorites() {

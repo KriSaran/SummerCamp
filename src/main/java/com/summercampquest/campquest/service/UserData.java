@@ -11,6 +11,8 @@ import java.util.Optional;
 
 @Service
 public class UserData {
+
+    @Autowired
     private final UserRepository userRepository;
 
     @Autowired
@@ -51,8 +53,8 @@ public class UserData {
         return userRepository.findByEmailAndPassword(email, password);
     }
 
-    public User findByToken(String token){
-        return userRepository.findByToken(token);
+    public User findUserByToken(String token){
+        return userRepository.findUserByToken(token);
     }
 
 

@@ -33,10 +33,11 @@ public class ResetPasswordController {
             return ResponseEntity.badRequest().body("User with email " + email + " not found");
         }
         String token = UUID.randomUUID().toString();
+        System.out.println(token);
         user.setForgotPasswordToken(token);
         Date tokenExpiryDt = new Date();
         long millis = tokenExpiryDt.getTime();
-        millis += 15 * 60 * 1000;
+        millis += 60 * 60 * 1000;
         user.setTokenExpiryDate(new Date(millis));
         userRepository.save(user);
 
@@ -48,26 +49,23 @@ public class ResetPasswordController {
     @PostMapping("/api/reset-password")
     public ResponseEntity<?> resetPassword(@RequestBody ResetPassword resetPassword) {
         String token = resetPassword.getToken();
+        System.out.println(token);
         String password=resetPassword.getPassword();
-        String retypePassword=resetPassword.getResetPassword();
-        User user=userRepository.findByToken(token);
+        System.out.println(password);
+        User user=userRepository.findUserByToken(token);
+        System.out.println(user);
         Date tokenValidation = new Date();
-        if(password !=null || retypePassword!=null) {
-            if (tokenValidation.before(user.getTokenExpiryDate())) {
-                if(!password.equals(retypePassword)){
-                    return ResponseEntity.badRequest().body("password and retype password should be same");
-                }else{
+          if (tokenValidation.before(user.getTokenExpiryDate())) {
+
                     user.setPassword(password);
                     user.setTokenExpiryDate(null);
                     user.setForgotPasswordToken(null);
+                    userRepository.save(user);
                 }
-
-            } else {
+             else {
                 return ResponseEntity.badRequest().body("Email verification time expired plz try again");
             }
-        }else{
-            return ResponseEntity.badRequest().body("Password should not be empty");
-             }
+
         return ResponseEntity.ok("Password reset Successful");
     }
 }
