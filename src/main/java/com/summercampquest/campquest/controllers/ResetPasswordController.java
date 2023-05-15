@@ -3,7 +3,7 @@ package com.summercampquest.campquest.controllers;
 import com.summercampquest.campquest.models.ForgotPassword;
 import com.summercampquest.campquest.models.User;
 import com.summercampquest.campquest.models.data.UserRepository;
-import com.summercampquest.campquest.service.MailServiceImpl;
+import com.summercampquest.campquest.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,7 +22,7 @@ public class ResetPasswordController {
     private UserRepository userRepository;
 
     @Autowired
-    private MailServiceImpl mailService;
+    private MailService mailService;
 
     @PostMapping("/api/forgot-password")
     public ResponseEntity<?> forgotPassword(@RequestBody ForgotPassword forgotPassword) {

@@ -1,4 +1,4 @@
-package com.summercampquest.campquest.data.models;
+package com.summercampquest.campquest.models;
 
 import javax.persistence.*;
 import java.io.Serializable;

@@ -1,4 +1,4 @@
-package com.summercampquest.campquest.data.models;
+package com.summercampquest.campquest.models;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -42,11 +42,7 @@ public class Camp {
 
     public Camp(String name, String description, Integer price, String duration, Integer age, Date deadline,
                 Integer totalSeats, String mode, String category, String campLink) {
-<<<<<<< HEAD:src/main/java/com/summercampquest/campquest/data/models/Camp.java
-
-=======
 //        super();
->>>>>>> Saran:src/main/java/com/summercampquest/campquest/models/Camp.java
         this.name = name;
         this.description = description;
         this.price = price;

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-
 @Service
 public class UserData {
     private final UserRepository userRepository;
@@ -51,6 +50,11 @@ public class UserData {
         return userRepository.findByEmailAndPassword(email, password);
     }
 
+
+
+    public User findByToken(String token ){
+        return userRepository.findByToken(token);
+    }
 
 }
 

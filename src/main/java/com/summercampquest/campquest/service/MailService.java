@@ -14,43 +14,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 @Component
-public class MailServiceImpl {
-
-//    @Autowired
-//    private SendGrid sendGrid;
-//
-//    public MailServiceImpl() {
-//    }
-//
-//    public void sendEmail(EmailRequest emailrequest) {
-//
-//        Mail mail = new Mail(new Email("saran.launchcode@gmail.com"), emailrequest.getSubject(), new Email(emailrequest.getTo()), new Content("text/plain", emailrequest.getBody()));
-//        mail.setReplyTo(new Email());
-//        Request request = new Request();
-//
-//        try {
-//
-//            request.setMethod(Method.POST);
-//
-//            request.addHeader("Authorization", "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");
-//            request.addHeader("Access-Control-Allow-Origin", "*");
-//            request.addHeader("Access-Control-Allow-Headers", "*");
-//
-//            request.setEndpoint("mail/send");
-//
-//            request.setBody(mail.build());
-//
-//            //SendGrid sendGrid1 = new SendGrid("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");
-//            sendGrid.api(request);
-//
-//        } catch (IOException ex) {
-//
-//            System.out.println(ex.getMessage());
-//
-//        }
-//
-//    }
-
+public class MailService {
     @Autowired
     SendGrid sendGrid;
     public String sendEmail(String email, String token)  {
@@ -90,6 +54,7 @@ public class MailServiceImpl {
 
         Content content = new Content();
         content.setType("text/html");
+//        content.setType("Plz click the link in 15 minutes");
         content.setValue("http://localhost:4200/reset-password?token="+token);
 
         mail.addContent(content);
@@ -104,7 +69,7 @@ public class MailServiceImpl {
 
         Personalization personalization = new Personalization();
         personalization.addTo(to);
-        personalization.setSubject("launch code");
+        personalization.setSubject("Password reset Request");
         mail.addPersonalization(personalization);
 
         return mail;
