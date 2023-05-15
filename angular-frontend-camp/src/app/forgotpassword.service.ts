@@ -11,9 +11,15 @@ export class ForgotpasswordService {
   apiUrl!: "http://localhost:8080/";
   
 
-  constructor(private http:HttpClient) { }
+  constructor(private httpClient:HttpClient) { }
 
-  getForgotPassword(email: any) {
-    return this.http.post(`${this.apiUrl}/forgot-password`, { email });
+  public getUserName(token: any): Observable<User>{
+    const url = this.apiUrl + "/" + token;
+    return this.httpClient.get<User>(url);
   }
+
+
+  // getForgotPassword(email: any) {
+  //   return this.http.post(`${this.apiUrl}/forgot-password`, { email });
+  // }
 }
