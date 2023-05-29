@@ -60,10 +60,10 @@ onSubmit() {
  
 
   const password = this.resetPasswordForm.value.password;
-  const retypepassword= this.resetPasswordForm.value.retypepassword;
+  // const retypepassword= this.resetPasswordForm.value.retypepassword;
   const token = this.token;
   // this.forgotpassword.getForgotPassword(email).subscribe((response: any) => {
-  this.http.post('http://localhost:8080/api/reset-password', { password, retypepassword, token}).subscribe((response) => {
+  this.http.post('http://localhost:8080/api/reset-password', { password, token}).subscribe((response) => {
     console.log('Password reset success');
     // display a success message to the user
   }, (error: any) => {

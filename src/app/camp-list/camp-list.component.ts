@@ -32,4 +32,5 @@ export class CampListComponent implements OnInit {
   this.router.navigate(['camp-detail', id]);
 }
 
+// public searchCamps()
 }
