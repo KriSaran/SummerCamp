@@ -40,7 +40,12 @@ ngOnInit(): void {
   });
  
   this.resetPasswordForm = new FormGroup({
-    password : new FormControl('', [Validators.required]),
+    password : new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
+  ])
+ 
   });
 
 }
@@ -54,7 +59,8 @@ onSubmit() {
   this.submitted = true;
 
   if (this.resetPasswordForm.invalid) {
-//    return;
+    // Displaying error message
+    console.error("Unsuccessful request");
   }
 
  
