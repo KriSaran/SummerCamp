@@ -12,6 +12,7 @@ import { ForgotpasswordService } from '../forgotpassword.service';
 export class ForgotPasswordComponent implements OnInit {
     forgotPasswordForm!: FormGroup;
     submitted = false;
+  toastr: any;
   
     constructor(private forgotpassword:ForgotpasswordService,private http: HttpClient) { }
   
@@ -34,9 +35,13 @@ export class ForgotPasswordComponent implements OnInit {
       // this.forgotpassword.getForgotPassword(email).subscribe((response: any) => {
       this.http.post('http://localhost:8080/api/forgot-password', { email }).subscribe((response) => {
         console.log('Forgot password request sent successfully');
+        this.toastr.info('Successfully sent the request');
+         this.forgotPasswordForm.value.email('');
         // display a success message to the user
       }, (error: any) => {
         console.error('Failed to send forgot password request:', error);
+        this.toastr.info('Failed to send forgot password request:',error);
+
         // display an error message to the user
       });
     }

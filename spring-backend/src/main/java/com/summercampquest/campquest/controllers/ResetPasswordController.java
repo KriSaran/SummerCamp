@@ -8,7 +8,7 @@ import com.summercampquest.campquest.service.MailServiceImpl;
 import com.summercampquest.campquest.service.UserData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -53,14 +53,14 @@ public class ResetPasswordController {
     @PostMapping("/api/reset-password")
     public ResponseEntity<?> resetPassword(@RequestBody ResetPassword resetPassword) {
 
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+      //  BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
         String token = resetPassword.getToken();
 
 //        System.out.println(token+"token");
         String password = resetPassword.getPassword();
 
-        String hashedPassword = passwordEncoder.encode(password);
+        String hashedPassword = password; //passwordEncoder.encode(password);
 
         System.out.println(password);
         User user = userRepository.findUserByToken(token);

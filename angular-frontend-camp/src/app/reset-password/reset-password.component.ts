@@ -17,6 +17,7 @@ resetPasswordForm!: FormGroup;
 
 submitted = false;
   user: any;
+  toastr: any;
 
 constructor(private http: HttpClient,private route:Router,private forgotPasswordService : ForgotpasswordService){
      route.events.subscribe(s=>{
@@ -70,11 +71,14 @@ onSubmit() {
   console.log(token);
   // this.forgotpassword.getForgotPassword(email).subscribe((response: any) => {
   this.http.post('http://localhost:8080/api/reset-password', { password:password, token:this.token}).subscribe((response) => {
-    console.log('Password reset success');
-
+     this.toastr.info('Successfully updated the password');
+     console.log('Password reset success');
+     this.resetPasswordForm.value.password('');
     // display a success message to the user
   }, (error: any) => {
     console.error('Failed to send update password request:', error);
+    this.toastr.info('Failed to update the password:',error);
+
     // display an error message to the user
   });
 }
