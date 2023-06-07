@@ -3,6 +3,8 @@ package com.summercampquest.campquest.service;
 import com.summercampquest.campquest.models.User;
 import com.summercampquest.campquest.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,8 +22,9 @@ public class UserData {
         this.userRepository = userRepository;
     }
 
-    public User addUser(User user) {
+    private PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
+    public User addUser(User user) {
         return userRepository.save(user);
     }
 
@@ -57,6 +60,9 @@ public class UserData {
        return userRepository.findUserByToken(token);
     }
 
+    public String getEncodedPassword(String password){
+        return passwordEncoder.encode(password);
+    }
 
 }
 
