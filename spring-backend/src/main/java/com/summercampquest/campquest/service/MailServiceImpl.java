@@ -68,15 +68,10 @@ public class MailServiceImpl {
             Response response = sendGrid.api(request);
 
             if (response != null) {
-
-
                 System.out.println("response code from sendgrid" + response.getStatusCode() + "," + response.getBody());
-
             }
 
         } catch (IOException e) {
-
-
             e.printStackTrace();
             return "error in sent mail!";
         }
@@ -91,12 +86,15 @@ public class MailServiceImpl {
 
         Content content = new Content();
         content.setType("text/html");
-        content.setValue("http://localhost:4200/reset-password?token=" + token);
+
+        content.setValue("Password reset link valid for 1 hour plz click the link before it expires else reset again"
+                         +"                                                     "
+                         +"http://localhost:4200/reset-password?token=" + token);
 
         mail.addContent(content);
 
         Email fromEmail = new Email();
-        fromEmail.setEmail("saran.launchcode@gmail.com");
+        fromEmail.setEmail("sara.projectquest@gmail.com");
         mail.setFrom(fromEmail);
 
         Email to = new Email();
@@ -105,7 +103,7 @@ public class MailServiceImpl {
 
         Personalization personalization = new Personalization();
         personalization.addTo(to);
-        personalization.setSubject("launch code");
+        personalization.setSubject("Camp Quest Password reset");
         mail.addPersonalization(personalization);
 
         return mail;

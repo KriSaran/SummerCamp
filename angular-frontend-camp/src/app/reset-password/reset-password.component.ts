@@ -42,9 +42,9 @@ ngOnInit(): void {
  
   this.resetPasswordForm = new FormGroup({
     password : new FormControl('', [
-      Validators.required,
-      Validators.minLength(8),
-      Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
+      Validators.required
+      // Validators.minLength(8),
+      // Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
   ])
  
   });
@@ -64,20 +64,19 @@ onSubmit() {
     console.error("Unsuccessful request");
   }
 
- 
 
   const password = this.resetPasswordForm.value.password;
   const token = this.token;
   console.log(token);
   // this.forgotpassword.getForgotPassword(email).subscribe((response: any) => {
   this.http.post('http://localhost:8080/api/reset-password', { password:password, token:this.token}).subscribe((response) => {
-     this.toastr.info('Successfully updated the password');
+    //  this.toastr.info('Successfully updated the password');
      console.log('Password reset success');
-     this.resetPasswordForm.value.password('');
+    //  this.resetPasswordForm.value.password('');
     // display a success message to the user
   }, (error: any) => {
     console.error('Failed to send update password request:', error);
-    this.toastr.info('Failed to update the password:',error);
+    // this.toastr.info('Failed to update the password:',error);
 
     // display an error message to the user
   });

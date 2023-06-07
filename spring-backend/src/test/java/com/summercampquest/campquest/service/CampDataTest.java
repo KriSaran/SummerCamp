@@ -30,6 +30,18 @@ class CampDataTest {
 
     @Test
     void displayCampById() {
+
+//        Mockito.when(camp.getId()).thenReturn("IOS Camp");
+//
+//        List<Camp> camps = new ArrayList<>(1);
+//        camps.add(camp);
+//        Mockito.when(campRepository.findAllById(1)).thenReturn(camps);
+//
+//        List<Camp> responseEntity = campRepository.findAll();
+//        assertNotNull(responseEntity);
+//        assertEquals(1, responseEntity.size());
+//        assertEquals("IOS Camp", responseEntity.get(0).getName());
+
     }
 
     @Test
@@ -54,12 +66,13 @@ class CampDataTest {
 
         List<Camp> camps = new ArrayList<>(1);
         camps.add(camp);
-        Mockito.when(campRepository.findAll()).thenReturn(camps);
+        Mockito.when(campRepository.searchCampsByNameAndCategory("%IOS",null)).thenReturn(camps);
 
-        List<Camp> responseEntity = campRepository.findAll();
+        List<Camp> responseEntity = campRepository.searchCampsByNameAndCategory("%IOS",null);
         assertNotNull(responseEntity);
         assertEquals(1, responseEntity.size());
         assertEquals("IOS Camp", responseEntity.get(0).getName());
 
     }
+
 }
